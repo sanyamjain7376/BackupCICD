@@ -6,11 +6,15 @@ pipelines:
           name: Build
           script:
             - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
-            - sfdx force:auth:jwt:grant --clientid $CONSUMER_KEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername --setalias devhub 
-            - sfdx force:source:retrieve -x manifest/package.xml -u $USERNAME
             - git remote add backup  git@github.com:sanyamjain7376/BackupCICD.git 
+            - git pull --mirror backup
+            - git add . 
+            - git commit -m "Source Retrived from github"
+            - github push
+            - sfdx force:auth:jwt:grant --clientid $CONSUMER_KEY --jwtkeyfile assets/server.key -- username $USERNAME --setdefaultdevhubusername --setalias devhub 
+            - sfdx force:source:retrieve -x manifest/package.xml -u $USERNAME
             - git add .
-            - git commit -m "source retrieve"
+            - git commit -m "Sourced Pushed to github"
             - git push --mirror backup
           after-script:
-            - echo "Source Retrieved in Model branch"
+            - echo "Backup Done"
