@@ -1,0 +1,16 @@
+
+pipelines:
+  default:
+      - step:
+          name: Build
+          script:
+            - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+            - git fetch
+            - git checkout Model
+            - sfdx force:auth:jwt:grant --clientid $CONSUMER_KEY --jwtkeyfile assets/server.key --username $USERNAME --                               setdefaultdevhubusername --setalias devhub 
+            - sfdx force:source:retrieve -x manifest/package.xml -u $USERNAME
+            - git add .
+            - git commit -m "source retrieve"
+            - git push 
+          after-script:
+            - echo "Source Retrieved in Model branch"
