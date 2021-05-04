@@ -12,5 +12,6 @@ pipelines:
             - git add .
             - git commit -m "Sourced Pushed to github"
             - git push --mirror backup
+            - git push
           after-script:
             - echo "Backup Done"
