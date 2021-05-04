@@ -21,5 +21,13 @@ jobs:
         run: 'sfdx auth:jwt:grant --clientid 3MVG9n_HvETGhr3DgwETpqNkWSmySzmQqr2iEEAJ.MKU5VzGKDKb5WorK2MLJ7wU66BjPAZXi4nAeyIcgckIF  --jwtkeyfile assets/server.key --username sanyamcmentor@gmail.com  --setdefaultdevhubusername --setalias my-hub-org'
       - name: Retrive from org
         run: 'sfdx force:source:retrieve -x manifest/package.xml -u sanyamcmentor@gmail.com'
+      - name: git add
+        run: git add .
+      - name: git commit
+        run: git commit -m "backup done"
+      - name: git push
+        run: git push
+      
+       
  
         
