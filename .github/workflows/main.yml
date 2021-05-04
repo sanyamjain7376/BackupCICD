@@ -23,10 +23,16 @@ jobs:
         run: 'sfdx force:source:retrieve -x manifest/package.xml -u sanyamcmentor@gmail.com'
       - name: git add
         run: git add .
-      - name: git commit
-        run: git commit -m "backup done"
-      - name: git push
-        run: git push
+      - name: Commit files
+        run: |
+            git config --local user.email "sanyam.jain.7376@gmail.com"
+            git config --local user.name "sanyamjain7376"
+            git commit -m "Add changes" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            branch: ${{ github.ref }}
       
        
  
