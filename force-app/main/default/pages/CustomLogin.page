@@ -1,0 +1,61 @@
+<apex:page showHeader="false" sidebar="false" controller="CommunitiesLoginController" standardStylesheets="true">
+
+<apex:Pagemessages id="msg"/>
+
+<!-- To allow Salesforce to display error messages -->
+
+<center><div><b>GLOBAL EDUCATION</b></div></center>
+
+<apex:form >
+
+<p><b>Global Education Login</b><br /></p>
+
+<apex:panelGrid columns="2" style="float:center;">
+
+<p><b><font color="white">UserName</font></b><br />
+
+<apex:inputText required="true" id="username" value="{!username}"/></p>
+
+<p><b><font color="white">Password</font></b><br />
+
+<apex:inputSecret id="password" value="{!password}"/></p>
+
+</apex:panelGrid>
+
+<p><apex:commandButton action="{!loginUser}" value="Login" id="Login"/>
+
+</p>
+
+</apex:form>
+
+<style>
+
+html,body{
+
+background-image:url('https://prelibertina.files.wordpress.com/2015/07/bg.jpg');
+
+background-repeat: no-repeat;
+
+background-size: 100% 100% ;
+
+height:100%;
+
+color:white;
+
+float:top;
+
+}
+
+form{
+
+float:right;
+
+color:white;
+
+border:1;
+
+}
+
+</style>
+
+</apex:page>

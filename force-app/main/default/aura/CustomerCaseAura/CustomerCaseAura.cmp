@@ -1,0 +1,4 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:appHostable,force.hasRecordId">       
+        
+    <c:customerCaseRecord />
+</aura:component>

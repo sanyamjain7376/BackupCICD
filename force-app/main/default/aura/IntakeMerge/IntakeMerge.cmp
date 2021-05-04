@@ -1,0 +1,48 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader" >
+
+
+    <aura:attribute name="currentStep" type="string" default="1"/>
+
+<!--Show loading spinner-->
+<lightning:spinner variant="brand" size="large" aura:id="Id_spinner" class="slds-hide" />
+
+<div class="slds-col modal-header slds-modal__header">
+    <h4 class="title slds-text-heading--medium" >Merge Intake</h4>
+</div>
+
+<div class="slds-col modal-body scrollable slds-p-around--medium" style="height: 200px; max-height: 400px; overflow-y: auto !important">
+<div class="slds-modal__content slds-p-around_medium">
+
+ <!--lightning progressIndicator start-->
+ <lightning:progressIndicator currentStep="{!v.currentStep}" type="base">
+    <lightning:progressStep label="Step One" value="1" onclick="{!c.selectFromHeaderStep1}"/>
+    <lightning:progressStep label="Step Two" value="2" onclick="{!c.selectFromHeaderStep2}"/>
+</lightning:progressIndicator>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    </div>
+
+</aura:component>

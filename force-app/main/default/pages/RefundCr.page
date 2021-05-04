@@ -1,0 +1,13 @@
+<apex:page standardController="Intake__c" extensions="VfExtension">
+    <apex:outputPanel rendered="{!if(err ==true, true , false)}">  
+					   <apex:pageMessages id="showmsg"></apex:pageMessages>
+					</apex:outputPanel>	
+    <apex:outputPanel rendered="{!if(err != true, true, false)}">
+      <apex:form >
+          <apex:inputField value="{!Intake__c.Refund_Date__c}"/>
+          <apex:commandButton value="Save" action="{!Save}" />
+        </apex:form>
+    
+    </apex:outputPanel>
+    
+</apex:page>

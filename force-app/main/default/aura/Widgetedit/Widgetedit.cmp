@@ -1,0 +1,6 @@
+<aura:component implements="lightning:actionOverride,force:hasRecordId,force:hasSObjectName" access="global"> 
+    <lightning:card title="Opportunity Edit">
+        <force:recordEdit aura:id="edit" recordId="{!v.recordId}"/>
+        <lightning:button label="update" onclick="{!c.update}"/>   
+    </lightning:card>
+</aura:component>

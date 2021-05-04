@@ -1,0 +1,20 @@
+<template >
+<lightning-card>
+
+    <lightning-input label ='Name' value ={name} onchange = {customerCaseHandleChange}></lightning-input>
+    <lightning-input label ='Signed Client' value ={signedClient} onchange = {customerCaseHandleChange}></lightning-input>
+    <lightning-input label ='Lead PlaintIff' value ={leadPlaintiff} onchange = {customerCaseHandleChange}></lightning-input>
+    <lightning-input label ='Named PlainIff' value ={namedPalintIff} onchange = {customerCaseHandleChange}></lightning-input>
+    <lightning-input label ='Class Representative' value={classRepresentative} onchange = {customerCaseHandleChange}></lightning-input>
+    <lightning-input label ='Additional Class Representative' value ={aditionalClassRepresenative} onchange = {customerCaseHandleChange}></lightning-input>
+    <lightning-input label ='Lead PlaintIff Movant' value={leadPlaintiffMovantDate} onchange = {customerCaseHandleChange}></lightning-input>
+    <lightning-input label ='Lead PlaintIff Not Appointed' value ={LeadPlaintiffNotApponted} onchange = {customerCaseHandleChange}></lightning-input>
+    
+    
+    <div class ='slds-button-group slds-align_absolute-center' role ='group'>
+        <lightning-button variant="brand" class="slds-m-top_small slds-m-around--medium " onclick={createLookupCustomerCaseAction}  label="Assign"></lightning-button>
+        <lightning-button variant="brand" class="slds-m-top_small slds-m-around--medium "  label="Cancel" onclick={handleReset}></lightning-button>
+    </div>
+
+</lightning-card>
+</template>

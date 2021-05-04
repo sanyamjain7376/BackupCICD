@@ -1,0 +1,15 @@
+<template>
+    <lightning-card>
+        <div>
+        <div class = 'slds-text-body_regular slds-m-bottom_small'>
+           Existing Case
+         </div> 
+            <c-lookup-lwc unique-key="CaseNumber" obj-name="Case" icon-name="standard:case" label-name="Case"
+                display-fields="CaseNumber, case.Display_Name__c" display-format=" case.Display_Name__c "
+                onvalueselect={myLookupHandle} placeholder="Search Case" value-id="00190000009J8mmAAC1" create-record=true read-only="true" class="custom-lookup">
+            </c-lookup-lwc>
+
+            
+        </div>
+    </lightning-card>
+</template>

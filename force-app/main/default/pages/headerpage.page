@@ -1,0 +1,101 @@
+<apex:page id="header" showHeader="false" sidebar="false"  controller="Header">
+
+<div class="head"><font size="40"><center>EDUCATION CENTER</center></font></div>
+
+<div align="right" class="icon">
+
+<apex:image value="https://prelibertina.files.wordpress.com/2015/07/icon.png" width="3%"
+
+height="3%"/>
+
+</div>
+
+<br/>
+
+<div class="name" align="right" bgcolor="#993333"> 
+
+<apex:outputText value="{!$User.FirstName}"/>
+
+<br/>
+
+<apex:outputText value="{!$User.Email}"/>
+
+</div>
+
+<apex:form >
+
+
+
+<apex:CommandButton value="Logout" action="{!Logout}"/>
+
+</apex:form>
+
+<br/>
+
+<br/>
+
+<div class="line">&nbsp;</div>
+
+<style>
+
+.head{
+
+background-color:#003366;
+
+background-image:url("https://prelibertina.files.wordpress.com/2015/07/bg.jpg");
+
+background-repeat:no-repeat;
+
+background-size:100% 100%;
+
+width:100%;
+
+color:white;
+
+height:30px;
+
+padding:80px;
+
+}
+
+.icon{
+
+background-color:#003366;
+
+color:white;
+
+float:right;
+
+height:5%;
+
+width:100%;
+
+}
+
+.name{
+
+background-color:#003366;
+
+color:white;
+
+}
+
+form{
+
+float : right;
+
+}
+
+.line{
+
+background-color:#999966;
+
+width=100%;
+
+height=10%;
+
+}
+
+</style> 
+
+</apex:page>

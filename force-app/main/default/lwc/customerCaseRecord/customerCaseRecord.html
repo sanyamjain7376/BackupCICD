@@ -1,0 +1,52 @@
+<template>
+    <lightning-card title="New Customer Case" icon-name="standard:record">
+       <div class ='slds-m-around_medium'>
+         
+        <c-lookup-lwc unique-key="Name" obj-name="Matter__c" icon-name="standard:case" label-name="Matter"
+        display-fields="Display_Name__c,Name" display-format="Display_Name__c"
+        onvalueselect={myLookupHandle} placeholder="Search Matter" value-id="00190000009J8mmAAC1" create-record=true read-only="true" class="custom-lookup">
+       </c-lookup-lwc>
+      
+        <template if:true={methodOfReceipt.data}>
+            <lightning-combobox name="progress"
+                                label="Method of Receipt"
+                                value={receivemethodvalue}
+                                placeholder="-Select-"
+                                options={methodOfReceipt.data.values}
+                                onchange={receiptMethodHandleChange} >
+            </lightning-combobox>
+          </template>
+          <template if:true={marketingmethod.data}>
+            <lightning-combobox name="progress"
+                                label="Marketing Method"
+                                value={marketingMethodvalue}
+                                placeholder="-Select-"
+                                options={marketingmethod.data.values}
+                                onchange={marketingMethodHandleChange} >
+            </lightning-combobox>
+          </template>
+          <template if:true={userCaseStatus.data}>
+            <lightning-combobox name="progress"
+                                label="User Case Status"
+                                value={userCaseStatusvalue}
+                                placeholder="-Select-"
+                                options={userCaseStatus.data.values}
+                                onchange={userCaseStatushandleuChange} >
+            </lightning-combobox>
+          </template>
+
+          <lightning-input label="Assigned Date" type ='date' onchange={handleNameChange} class="slds-m-bottom_x-small"></lightning-input>
+          <lightning-input label="Signed Client" type ='text' onchange={handleNameChange} class="slds-m-bottom_x-small"></lightning-input>
+          <lightning-input label="Lead Plaintiff" type ='text' onchange={handleNameChange} class="slds-m-bottom_x-small"></lightning-input>
+          <lightning-input label="Named PlaintIff" type ='text' onchange={handleNameChange} class="slds-m-bottom_x-small"></lightning-input>
+          <lightning-input label="Class Representative" type ='text' onchange={handleNameChange} class="slds-m-bottom_x-small"></lightning-input>
+          <lightning-input label="Additional Class Representative" type ='text' onchange={handleNameChange} class="slds-m-bottom_x-small"></lightning-input>
+          <lightning-input label="Lead Plaintiff Movant" type ='text' onchange={handleNameChange} class="slds-m-bottom_x-small"></lightning-input>
+          <lightning-input label="Lead Plaintiff Not Appointed" type ='text' onchange={handleNameChange} class="slds-m-bottom_x-small"></lightning-input>
+          
+          <lightning-button label="Assign" variant="brand" onclick={createCustomerCase}></lightning-button>
+       </div>
+    </lightning-card>
+
+
+</template>
