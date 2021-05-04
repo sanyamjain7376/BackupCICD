@@ -20,6 +20,6 @@ jobs:
       - name: Auth with the DevHub
         run: 'sfdx auth:jwt:grant --clientid 3MVG9n_HvETGhr3DgwETpqNkWSmySzmQqr2iEEAJ.MKU5VzGKDKb5WorK2MLJ7wU66BjPAZXi4nAeyIcgckIF  --jwtkeyfile assets/server.key --username sanyamcmentor@gmail.com  --setdefaultdevhubusername --setalias my-hub-org'
       - name: Retrive from org
-        run: 'fdx force:source:retrieve -x manifest/package.xml -u sanyamcmentor@gmail.com'
+        run: 'sfdx force:source:retrieve -x manifest/package.xml -u sanyamcmentor@gmail.com'
  
         
