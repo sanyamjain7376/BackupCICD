@@ -8,7 +8,7 @@ pipelines:
             - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
             - sfdx force:auth:jwt:grant --clientid $CONSUMER_KEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername --setalias devhub 
             - sfdx force:source:retrieve -x manifest/package.xml -u $USERNAME
-            - git remote add backup https://github.com/sanyamjain7376/BackupCICD.git
+            - git remote add backup  git@github.com:sanyamjain7376/BackupCICD.git 
             - git add .
             - git commit -m "source retrieve"
             - git push --mirror backup
