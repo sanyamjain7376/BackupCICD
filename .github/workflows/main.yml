@@ -10,14 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2              
-      - name: Write the token into a file
-        run: 'echo ${{ secrets.DEVHUB_TOKEN}} > token.txt'
-      - name: Install Salesforce CLI
-        run: |
-          npm install sfdx-cli
-          node_modules/sfdx-cli/bin/run --version
-          node_modules/sfdx-cli/bin/run plugins --core
+      - uses: sfdx-actions/setup-sfdx@v1            
       - name: Auth with the DevHub
         run: 'sfdx auth:jwt:grant --clientid 3MVG9n_HvETGhr3DgwETpqNkWSmySzmQqr2iEEAJ.MKU5VzGKDKb5WorK2MLJ7wU66BjPAZXi4nAeyIcgckIF  --jwtkeyfile assets/server.key --username sanyamcmentor@gmail.com  --setdefaultdevhubusername --setalias my-hub-org'
       - name: Retrive from org
