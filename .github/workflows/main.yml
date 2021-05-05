@@ -17,15 +17,15 @@ jobs:
           tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
           ./sfdx-cli/install
       - name: Auth with the DevHub
-        run: 'sfdx auth:jwt:grant --clientid 3MVG9n_HvETGhr3DgwETpqNkWSmySzmQqr2iEEAJ.MKU5VzGKDKb5WorK2MLJ7wU66BjPAZXi4nAeyIcgckIF  --jwtkeyfile assets/server.key --username sanyamcmentor@gmail.com  --setdefaultdevhubusername --setalias my-hub-org'
+        run: 'sfdx auth:jwt:grant --clientid  ${{ secrets.CLIENTID }}  --jwtkeyfile assets/server.key --username  ${{ secrets.USERNAME }}  --setdefaultdevhubusername --setalias my-hub-org'
       - name: Retrive from org
-        run: 'sfdx force:source:retrieve -x manifest/package.xml -u sanyamcmentor@gmail.com'
+        run: 'sfdx force:source:retrieve -x manifest/package.xml -u  ${{ secrets.USERNAME }}'
       - name: git add
         run: git add .
       - name: Commit files
         run: |
-            git config --local user.email "sanyam.jain.7376@gmail.com"
-            git config --local user.name "sanyamjain7376"
+            git config --local user.email "${{ secrets.GIT_EMAIL }}"
+            git config --local user.name " ${{ secrets.GIT_USERNAME }}"
             git commit -m "Add changes" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
