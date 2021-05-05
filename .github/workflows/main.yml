@@ -13,10 +13,9 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install Salesforce CLI
         run: |
-          export CLIURL=https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
-          ./sfdx/install
-          export PATH=./sfdx/$(pwd):$PATH
-          sfdx --version
+          wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+          tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
+          ./sfdx-cli/install
       - name: Auth with the DevHub
         run: 'sfdx auth:jwt:grant --clientid 3MVG9n_HvETGhr3DgwETpqNkWSmySzmQqr2iEEAJ.MKU5VzGKDKb5WorK2MLJ7wU66BjPAZXi4nAeyIcgckIF  --jwtkeyfile assets/server.key --username sanyamcmentor@gmail.com  --setdefaultdevhubusername --setalias my-hub-org'
       - name: Retrive from org
