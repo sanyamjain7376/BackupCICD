@@ -14,7 +14,6 @@ jobs:
       - name: Install Salesforce CLI
         run: |
           export CLIURL=https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
-          run: '(test -f sfdx && echo sfdx exists) || echo sfdx does not exist, skipping step'
           wget -qO- $CLIURL | tar xJ -C sfdx --strip-components 1
           ./sfdx/install
           export PATH=./sfdx/$(pwd):$PATH
